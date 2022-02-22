@@ -2,8 +2,7 @@
 import os
 import datetime
 import time
-from example_my_os import ExampleMyOS
-from work import Work
+import modules as m
 
 # Переменные для заполнения пустоты в классе "ExampleMyOS"
 #  в случае, если ОС - *nix.
@@ -23,7 +22,7 @@ if (os.sys.platform == 'win32'):
 #  Заполнение списка пулом путей к директориям
 paths = []
 for circle in range(1, 4):
-    directory = ExampleMyOS(circle, disk_source, disk_replic, disk_log)
+    directory = m.ExampleMyOS(circle, disk_source, disk_replic, disk_log)
     directory.user_source(circle)
     paths.append(directory.my_path)
 
@@ -46,7 +45,7 @@ if (backup_value == 'c'):
     backup_delay = int(backup_delay) * 60**2
 
 # Выполнение бэкапов и вывод логов
-filework = Work(source_dir, replic_dir, log_dir, directory.slash, backup_delay)
+filework = m.Work(source_dir, replic_dir, log_dir, directory.slash, backup_delay)
 filework.print_create()
 active = True
 while active:
